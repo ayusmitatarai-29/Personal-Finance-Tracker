@@ -1,0 +1,257 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Navbar -->
+
+    <nav>
+
+        <h2>💰 Finance Tracker</h2>
+
+        <div class="nav-right">
+            <button id="themeToggle">🌙</button>
+            <button onclick="logout()">Logout</button>
+        </div>
+
+    </nav>
+
+    <!-- Login / Signup -->
+
+    <div class="auth-container" id="authContainer">
+
+        <div class="auth-box">
+
+            <h2 id="authTitle">Login</h2>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Username">
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Password">
+
+            <button onclick="handleAuth()">
+                Login
+            </button>
+
+            <p id="toggleText">
+                Don't have an account?
+                <span onclick="toggleAuth()">
+                    Signup
+                </span>
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- Dashboard -->
+
+    <div id="dashboard" class="hidden">
+
+        <!-- Summary -->
+
+        <div class="summary">
+
+            <div class="card balance">
+                <h3>Total Balance</h3>
+                <p id="balance">₹0</p>
+            </div>
+
+            <div class="card expense">
+                <h3>Total Expense</h3>
+                <p id="expense">₹0</p>
+            </div>
+
+            <div class="card budget">
+                <h3>Monthly Budget</h3>
+                <p id="budgetAmount">₹0</p>
+            </div>
+
+            <div class="card remaining">
+                <h3>Budget Remaining</h3>
+                <p id="remainingBudget">₹0</p>
+            </div>
+
+        </div>
+
+        <!-- Budget -->
+
+        <div class="budget-container">
+
+            <input
+                type="number"
+                id="monthlyBudget"
+                placeholder="Set Monthly Budget">
+
+            <button onclick="setBudget()">
+                Set Budget
+            </button>
+
+        </div>
+
+        <!-- Add Expense -->
+
+        <div class="form-container">
+
+            <input
+                type="text"
+                id="text"
+                placeholder="Expense Description">
+
+            <input
+                type="number"
+                id="amount"
+                placeholder="Expense Amount">
+
+            <select id="category">
+
+                <option>Food</option>
+                <option>Shopping</option>
+                <option>Travel</option>
+                <option>Bills</option>
+                <option>Entertainment</option>
+
+            </select>
+
+            <button onclick="addTransaction()">
+                Add Expense
+            </button>
+
+        </div>
+
+        <!-- Budget Progress -->
+
+        <div class="progress-card">
+
+            <div class="progress-text">
+                Budget Usage
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+
+        </div>
+
+        <!-- Charts -->
+
+        <div class="chart-container">
+
+            <div class="chart-card">
+
+                <h3>Expense Breakdown</h3>
+
+                <canvas id="expenseChart"></canvas>
+
+            </div>
+
+            <div class="chart-card">
+
+                <h3>Monthly Report</h3>
+
+                <canvas id="monthlyChart"></canvas>
+
+            </div>
+
+        </div>
+
+        <!-- Search -->
+
+        <div class="search-container">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search expenses..."
+                onkeyup="searchTransactions()">
+
+        </div>
+
+        <!-- Transactions -->
+
+        <div class="transaction-section">
+
+            <h2>Expenses</h2>
+
+            <ul id="list"></ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Footer -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <div class="footer-left">
+
+            <h2>💰 Finance Tracker</h2>
+
+            <p>
+                Track your expenses,
+                manage budgets,
+                and improve your financial planning.
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <h3>Quick Links</h3>
+
+            <a href="#">Home</a>
+            <a href="#">Reports</a>
+            <a href="#">Budget</a>
+            <a href="#">Dashboard</a>
+
+        </div>
+
+        <div class="footer-contact">
+
+            <h3>Contact</h3>
+
+            <p>Email: finance@gmail.com</p>
+            <p>Phone: +91 9876543210</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Finance Tracker | All Rights Reserved
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
